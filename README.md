@@ -36,7 +36,7 @@ var options = {
 }
 ```
 
-Or, include include `tui-code-snippet.js` (**v1.4.0** or **later**) and then immediately write the options as follows:
+Or, include `tui-code-snippet.js` (**v1.4.0** or **later**) and then immediately write the options as follows:
 
 ```js
 tui.usageStatistics = false;
@@ -54,7 +54,7 @@ npm install --save @toast-ui/vue-chart
 
 ### Load
 
-You can use Toast UI Chart for Vue as moudule format or namespace. When using module format, you should load `tui-chart.css` in the script.
+You can use Toast UI Chart for Vue as moudule format or namespace. When using module format, you should load `tui-chart.css` in the script. Also, map files are not included, so if you want to use a map chart, you have to import map files in the same way.
 
 * Using Ecmascript module
 
@@ -77,6 +77,13 @@ You can use Toast UI Chart for Vue as moudule format or namespace. When using mo
     ```js
     var barChart = toastui.barChart;
     var lineChart = toastui.lineChart;
+    ```
+
+* Using map files
+
+    ```js
+    import 'tui-chart/dist/maps/south-korea';
+    import { mapChart } from '@toast-ui/vue-chart'
     ```
 
 ### Components
@@ -171,7 +178,7 @@ You can use [all kinds of charts in tui.chart](https://github.com/nhnent/tui.cha
 
 You can use `data`, `options`, `theme` props for initailize tui.chart.
 
-If you use map chart, you should use `map` prop.
+If you want to use other maps, you should use `map` prop.
 
 **For more detail with example, see [Getting-Started](https://github.com/nhnent/toast-ui.vue-chart/blob/master/docs/getting-started.md#props)**
 
@@ -180,7 +187,7 @@ If you use map chart, you should use `map` prop.
 | data | Object | O | This prop is for data of the chart. When you change data, chart is rendering for changing data. |
 | options | Object | X | This prop is for options of tui.chart. You can configuration about chart. |
 | theme | Object | X | This prop can change theme of the chart. |
-| map | String or Object | X | You want to use map chart, you need to set map prop. We suppoert maps of `world`, `south-korea`, `china`, `usa`, `japan`, `singapore`, `thailand`, `taiwan`. So in case you just set `String` of these kinds of map. If you want to use other maps, you set Object that is required `name` and `value`. |
+| map | Object | X | If you want to use other maps, you set Object that is required `name` and `value`. |
 
 ### Event
 
@@ -203,20 +210,20 @@ If you use map chart, you should use `map` prop.
 For use method, first you need to assign ref attribute of element like this:
 
 ```html
-<bar-chart ref="tuiChart" data="chartData"/>
+<bar-chart ref="tuiBarChart" data="chartData"/>
 ```
 
 After then you can use methods through `this.$refs`. We provide `invoke` method. You can use `invoke` method to call the method of tui.chart. First argument of invoke is name of the method and second argument is parameters of the method.
 
 ```js
-this.$refs.tuiChart.invoke('resize', {
+this.$refs.tuiBarChart.invoke('resize', {
     width: 500,
     height: 500
 });
-this.$refs.tuiChart.invoke('animateChart');
+const checkedLegend = this.$refs.tuiBarChart.invoke('getCheckedLegend');
 ```
 
-For more information of method, see [method of tui.chart](http://nhnent.github.io/tui.chart/api/latest/).
+In the [api document](https://nhnent.github.io/tui.chart/latest/index.html), check the **methods** for each chart type.
 
 ## 🔧 Pull Request Steps
 
