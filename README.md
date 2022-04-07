@@ -1,3 +1,9 @@
+# ⚠️Notice: This repository is deprecated️️️️️
+
+TOAST UI Chart Vue Wrapper has been managed separately from the TOAST UI Chart repository. As a result of the distribution of these issues, we decided to deprecated each wrapper repository and manage repository as a [mono-repo](https://en.wikipedia.org/wiki/Monorepo) from the [TOAST UI Chart repository](https://github.com/nhn/tui.chart).
+
+From now on, please submit issues or contributings related to TOAST UI Vue Wrapper to [TOAST UI Chart repository](https://github.com/nhn/tui.chart). Thank you🙂.
+
 # TOAST UI Chart for Vue
 
 > This is Vue component wrapping [TOAST UI Chart](https://github.com/nhn/tui.chart).
